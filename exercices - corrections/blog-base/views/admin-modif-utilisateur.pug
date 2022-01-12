@@ -1,0 +1,37 @@
+extends extends/base-admin
+
+block section
+    if(utilisateur.niveau < 5)
+        form(action="/admin/modifier-utilisateur-verif" method="post")
+            .form-group
+                label Identifiant
+                p=donneesUtilisateur.pseudo
+                input(type="hidden" name="pseudo" value=donneesUtilisateur.pseudo)
+            .form-group
+                label(for="mdp") Mot de passe
+                input(type="password" name="mdp" class="form-control" value=donneesUtilisateur.mdp)
+            select(class="custom-select" name="niveau")
+                option(value="10") Visiteur
+                option(value="5") Rédacteur
+                option(value="1") Administrateur
+            .form-group
+                label(for="prenom") Prénom
+                input(type="text" name="prenom" class="form-control" value=donneesUtilisateur.prenom)
+            .form-group
+                label(for="nom") Nom
+                input(type="text" name="nom" class="form-control" value=donneesUtilisateur.nom )
+            .form-group
+                label(for="rue") Rue
+                input(type="text" name="rue" class="form-control" value=donneesUtilisateur.rue)
+            .form-group
+                label(for="cp") Code Postal
+                input(type="text" name="cp" class="form-control" value=donneesUtilisateur.cp)
+            .form-group
+                label(for="ville") Ville
+                input(type="text" name="ville" class="form-control" value=donneesUtilisateur.ville)
+            .form-group
+                label(for="telephone") Téléphone
+                input(type="tel" name="telephone" class="form-control" value=donneesUtilisateur.telephone)
+            input(type="submit" value="Enregistrer" class="btn btn-primary")
+    else
+        p(class="alert alert-warning") Vous ne pouvez pas accéder à cette page

@@ -1,0 +1,30 @@
+doctype html
+head
+    title= titre
+    link(rel="stylesheet", href="/css/bootstrap.css")
+body
+    if(message.texte)
+        .message
+            p(class="alert alert-" + message.class)= message.texte
+    header
+        nav(class="navbar navbar-expand-lg")
+            a(class="navbar-brand" href="/") Blog
+            ul(class="navbar-nav bd-navbar-nav flex-row")
+                if (utilisateur.pseudo)
+                    li
+                        a(href="/admin/accueil") Administration
+                    li
+                        a(href="/deconnecter") Se déconnecter
+                    if(utilisateur.niveau < 5)
+                        li
+                            a(href="/admin/ajout-utilisateur") Ajouter un utilisateur
+                        li
+                            a(href="/admin/liste-utilisateur") Listes utilisateurs
+    .container
+        h1= titre
+
+        section
+            block section
+
+    script(src="/js/script.js")
+

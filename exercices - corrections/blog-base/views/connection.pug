@@ -1,0 +1,11 @@
+extends extends/base-site
+
+block section
+    form(action="/connecter-verif" method="post")
+        .form-group
+            label(for="pseudo") Identifiant
+            input(type="text" name="pseudo" class="form-control")
+        .form-group
+            label(for="mdp") Mot de passe
+            input(type="password" name="mdp" class="form-control")
+        input(type="submit" class="btn btn-primary")

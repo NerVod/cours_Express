@@ -1,0 +1,23 @@
+extends extends/base-admin
+
+block section
+    table.table
+        thead
+            tr
+                th Pseudo
+                th Prénom
+                th Nom
+                th Modifier
+                th Supprimer
+        tbody
+            each utilisateur in listeUtilisateurs
+                tr
+                    td= utilisateur.pseudo
+                    td= utilisateur.prenom
+                    td= utilisateur.nom
+                    td
+                        a(href="/admin/modifier-utilisateur/" + utilisateur.pseudo) modifier
+                    td
+                        a(href="/admin/supprimer-utilisateur/" + utilisateur.pseudo) X
+   
+    
