@@ -8,27 +8,62 @@ const __dirname = dirname(__filename);
 
 app.use("/css", express.static(path.join(__dirname, "public/css")));
 app.use("/img", express.static(path.join(__dirname, "public/images")));
-app.use("/pug", express.static(path.join(__dirname, "public")));
+app.use("/", express.static(path.join(__dirname, "views/extends")));
+
+app.use(express.urlencoded({extended: true}));
 
 app.set("view engine", "pug");
+app.get('/recherche', (req, res) => {
 
-app.get("/pug", (req, res) => {
-  let pageDemandee = req.params;
-  console.log("page demandée ", pageDemandee);
-  let pageAffichee = "";
-
-  if (accueil === pageDemandee) {
-    pageAffichee = "main.pug";
-  } else if (blog === pageDemandee) {
-    pageAffichee = "blog.pug";
-  } else if (contact === pageDemandee) {
-    pageAffichee = "contact.pug";
+ 
+  if('accueil' == req.query.a) {
+    console.log(req.query.a)
+    res.render('main.pug');
+  } else if ('blog' == req.query.b) {
+    console.log(req.query.b)
+    res.render('blog.pug');
+  } else if ('contact' == req.query.c) {
+    console.log(req.query.c)
+    res.render('contact.pug')
   } else {
-    pageAffichee = "404.pug";
+    res.render('404.pug')
   }
+})
 
-  res.render(pageAffichee);
-});
+let param1 = '';
+let param2 = '';
+  
+app.get('/:info1', (req, res) => {
+
+param1 = req.params.info1
+
+console.log(param1);
+if('accueil' == param1){
+  res.render('main.pug')
+} else if ( 'contact' == param1) {
+  res.render('contact.pug')
+} else if ( 'blog' == param1) {
+  res.render('blog.pug')
+} else if ( 'form' == param1) {
+  res.render('form.pug')
+} else {
+  res.render('404.pug')
+}
+})
+
+app.post('form', (req, res) => {
+  console.log('req.query : ', req.query)
+
+})
+  
+
+
+
+
+
+
+
+
 
 app.listen(
   8080,
