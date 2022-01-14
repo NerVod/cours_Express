@@ -1,0 +1,9 @@
+extends template.pug 
+block content 
+    h1 Récupération des informations du formulaire :
+    if (prenom && nom)
+        p Bonjour #{ prenom } #{ nom }
+        p Bienvenue sur la page de traitement du formulaire.
+block footer
+    p le copyright du site 
+    p les conditions générales

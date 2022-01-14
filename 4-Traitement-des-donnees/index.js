@@ -49,12 +49,17 @@ if('accueil' == param1){
 } else {
   res.render('404.pug')
 }
-})
+});
 
-app.post('form', (req, res) => {
-  console.log('req.query : ', req.query)
+app.post("/form", (req, res) => {
+  console.log("req.body : ", req.body);
+  res.render("traitForm.pug", {
+    prenom: `${req.body["votre-prenom"]}`,
+    nom: `${req.body["votre-nom"]}`,
+  });
+});
 
-})
+
   
 
 
