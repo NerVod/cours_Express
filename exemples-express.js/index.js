@@ -58,7 +58,7 @@ app.get('/test-session', (req, res) => {
 
 
 // On stocke dans une variable l'url de notre base de données...
-const url = 'mongodb://localhost:27017';
+const url =   ;
 
 // On stocke dans une variable le nom de la base de données à laquelle on souhaite se connecter...
 const dbName = 'mon-site';
