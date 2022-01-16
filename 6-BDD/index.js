@@ -7,7 +7,7 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const url = 'mongodb://localhost:27017';
+const url = 'mongodb+srv://Benjamin:fpQH9Skw4tRlYoyB@cluster0.aykvr.mongodb.net/test?authSource=admin&replicaSet=atlas-baj87g-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true';
 const client = new MongoClient(url);
 
 const dbName = 'mon-site';
