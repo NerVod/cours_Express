@@ -82,8 +82,8 @@ app.post("/form", (req, res) => {
     res.render("traitForm.pug", {
       prenom: `${req.body["votre-prenom"]}`,
       nom: `${req.body["votre-nom"]}`,
-    });
-  });
+    }); 
+});
 
 app.listen(8080),
 console.log('Le serveur écoute sur le port 8080 pour la série erreurs et sessions');
