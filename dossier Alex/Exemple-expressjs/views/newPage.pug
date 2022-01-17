@@ -1,0 +1,11 @@
+extends extends/layout.pug
+
+block head 
+  include includes/head.pug
+  link(rel="stylesheet", href="/css/main.css") 
+
+block contenu 
+  p Coucou, #{ prenom } #{ nom }, voici une liste d'animaux, hihihi :
+  each animal in pets
+    ul
+      li= animal 
